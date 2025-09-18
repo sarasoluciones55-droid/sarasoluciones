@@ -8,11 +8,12 @@ from mi_app.views.views_presentacionTipo import *
 from mi_app.views.views_cateroria import *
 from mi_app.views.views_producto import *
 from mi_app.views.views_gestionservicio import *
+from mi_app.views.views_principal import listar_principal
 
 
 app_name = 'mi_app'
 urlpatterns = [
-   #path('index.html', vista, name='index'),
+      path('', listar_principal, name='index'),  
     
    #_________________________ Modulo de Administrador __________________________
     path('administradores/listar/', AdministradorListView.as_view(), name='administrador_lista'),
@@ -65,6 +66,5 @@ urlpatterns = [
        path('gestionservicio/listar/', servicioListView.as_view(), name='gestionservicio_lista'),
        path('gestionservicio/crear/', servicioCreateView.as_view(), name='gestionservicio_crear'),
        path('gestionservicio/editar/<int:pk>/', serviciopdateView.as_view(), name='gestionservicio_editar'),
-       path('gestionservicio/eliminar/<int:pk>/', servicioDeleteView.as_view(), name='gestionservicio_eliminar'),  
-     
+       path('gestionservicio/eliminar/<int:pk>/', servicioDeleteView.as_view(), name='gestionservicio_eliminar'),      
 ]
