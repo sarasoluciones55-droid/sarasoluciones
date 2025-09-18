@@ -3,17 +3,22 @@
         <!--begin::Container-->
         <div class="container-fluid">
           <!--begin::Start Navbar Links-->
-          <ul class="navbar-nav">
+          <ul class="navbar-nav align-items-center">
             <li class="nav-item">
               <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
                 <i class="bi bi-list"></i>
               </a>
             </li>
             <li class="nav-item d-none d-md-block">
-              <a href="#" class="nav-link">Home</a>
+              <!--etiqueta para el link de home o pagina principal-->
+            <a href="{% url 'mi_app:index' %}" class="nav-link"> </i><p>Pagina principal</p>
+                    </a>
             </li>
-            <li class="nav-item d-none d-md-block">
-              <a href="#" class="nav-link">Contact</a>
+            <li class="nav-item d-none d-md-block ">
+            <a href="https://wa.me/573125338803?text=Hola%20quiero%20más%20información" target="_blank">
+            <i class="bi bi-whatsapp"></i>
+            Contacto, escribenos por WhatsApp</a>
+   
             </li>
           </ul>
           <!--end::Start Navbar Links-->
