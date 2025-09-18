@@ -1,17 +1,18 @@
-from django.urls import path, include
+from django.urls import path
+# importa las views reales según tus carpetas
 from mi_app.views import *
-from mi_app.views.views_administrador import *
-from mi_app.views.views_cliente import *
-from mi_app.views.views_proveedor import *
-from mi_app.views.views_marca import *
-from mi_app.views.views_presentacionTipo import *
-from mi_app.views.views_cateroria import *
-from mi_app.views.views_producto import *
-from mi_app.views.views_gestionservicio import *
-from mi_app.views.views_garantia import *
-from mi_app.views.views_pedido import *
-from mi_app.views.views_factura import *
-from mi_app.views.views_ventas import *
+from mi_app.view.administrador.views_administrador import *
+from mi_app.view.cliente.views_cliente import *
+from mi_app.view.proveedor.views_proveedor import *
+from mi_app.view.marca.views_marca import *
+from mi_app.view.presentacion.views_presentacionTipo import *
+from mi_app.view.categoria.views_categoria import *
+from mi_app.view.producto.views_producto import *
+from mi_app.view.servicio.views_gestionservicio import *
+from mi_app.view.pedido.views_pedido import *
+from mi_app.view.factura.views_factura import *
+from mi_app.view.ventas.views_ventas import *
+from mi_app.view.garantia.views_garantia import *
 
 
 app_name = 'mi_app'
@@ -73,10 +74,10 @@ urlpatterns = [
  
  
  #--------------------------------modulo garantia ---------------------------------------
-       path('garantia/listar/', garantiaListView.as_view(), name='garantia_lista'),
-       path('garantia/crear/', garantiaCreateView.as_view(), name='garantia_crear'),
-       path('garantia/editar/<int:pk>/', garantiaupdateView.as_view(), name='garantia_editar'),
-       path('garantia/eliminar/<int:pk>/', garantiaDeleteView.as_view(), name='garantia_eliminar'),  
+       path('garantia/listar/', GarantiaListView.as_view(), name='garantia_lista'),
+       path('garantia/crear/', GarantiaCreateView.as_view(), name='garantia_crear'),
+       path('garantia/editar/<int:pk>/', GarantiaupdateView.as_view(), name='garantia_editar'),
+       path('garantia/eliminar/<int:pk>/', GarantiaDeleteView.as_view(), name='garantia_eliminar'),  
      
 #--------------------------------modulo pedido ---------------------------------------
         path('pedido/listar/', pedidoListView.as_view(), name='pedido_lista'),   

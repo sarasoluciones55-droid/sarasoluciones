@@ -11,17 +11,17 @@ from mi_app.forms.form_garantia import GarantiaForm
 
 
 
-def listar_gestionservicio(request):
+def listar_garantia(request):
     data = {
-        "titulo": "Garantias",
-        "Garantia" : Garantia.objects.all()
+        "titulo": "Garantia",
+        "Garantia": Garantia.objects.all()
     }
-    return render(request, 'Garantia/Garantia.html', data)
+    return render(request, 'garantia/garantia.html', data)
 
 
-class garantiaListView(ListView):
+class GarantiaListView(ListView):
     model = Garantia
-    template_name ='modulos/Garantia/garantia.html'
+    template_name ='modulos/garantia/garantia.html'
     
     # @method_decorator(login_required)
     @method_decorator(csrf_exempt)
@@ -29,20 +29,20 @@ class garantiaListView(ListView):
        return super().dispatch(request, *args, **kwargs)
     
     def post(self, request, *args, **kwargs):
-        nombre = {'nombre' : 'garantia'}
+        nombre = {'nombre' : 'Garantia'}
         return JsonResponse(nombre)
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['titulo'] = 'Gestión de garantías'
+        context['titulo'] = 'Garantia'
         context['crear_url'] = reverse_lazy('mi_app:garantia_crear')
-        context['entidad'] = 'garantias'  
+        context['entidad'] = 'garantia'  
         return context
     
-class garantiaCreateView(CreateView):
+class GarantiaCreateView(CreateView):
     model = Garantia
     form_class = GarantiaForm
-    template_name = 'modulos/Garantia/crear_garantia.html'
+    template_name = 'modulos/garantia/crear_garantia.html'
     success_url = reverse_lazy('mi_app:garantia_lista')
     
     def form_valid(self, form):
@@ -52,14 +52,14 @@ class garantiaCreateView(CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context ['titulo'] = 'Crear garantia'
-        context ['entidad'] = 'garantia'
+        context ['entidad'] = 'garantias'
         context ['listar_url'] = reverse_lazy('mi_app:garantia_lista')
         return context
     
-class garantiaupdateView(UpdateView):
+class GarantiaupdateView(UpdateView):
     model = Garantia
     form_class = GarantiaForm
-    template_name = 'modulos/Garantia/crear_garantia.html'
+    template_name = 'modulos/garantia/crear_garantia.html'
     success_url = reverse_lazy('mi_app:garantia_lista')
     
     def form_valid(self, form):
@@ -69,13 +69,13 @@ class garantiaupdateView(UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['titulo'] = 'Editar garantia'
-        context['entidad'] = 'garantia'
-        context['listar_url'] = reverse_lazy('mi_app:garantia_lista')
+        context['entidad'] = 'garantias'
+        context['listar_url'] = reverse_lazy('mi_app:garantias_lista')
         return context
 
-class garantiaDeleteView(DeleteView):
+class GarantiaDeleteView(DeleteView):
     model = Garantia
-    template_name = 'modulos/Garantia/eliminar_garantia.html'
+    template_name = 'modulos/garantia/eliminar_garantia.html'
     success_url = reverse_lazy('mi_app:garantia_lista')
     
     def form_valid(self, form):
@@ -86,6 +86,6 @@ class garantiaDeleteView(DeleteView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['titulo'] = 'Eliminar garantia'
-        context['entidad'] = 'garantia'
+        context['entidad'] = 'garantias'
         context['listar_url'] = reverse_lazy('mi_app:garantia_lista')
         return context
