@@ -3,17 +3,20 @@
         <!--begin::Sidebar Brand-->
         <div class="sidebar-brand">
           <!--begin::Brand Link-->
-          <a href="../index.html" class="brand-link">
-            <!--begin::Brand Image-->
-            <img src="{% static 'AdminLTE/dist/assets/img/AdminLTELogo.png' %}"
-              alt="AdminLTE Logo"
-              class="brand-image opacity-75 shadow"
-            />
-            <!--end::Brand Image-->
-            <!--begin::Brand Text-->
-            <span class="brand-text fw-light">AdminLTE 4</span>
-            <!--end::Brand Text-->
-          </a>
+      <a href="{% url 'mi_app:index' %}" class="brand-link">
+  <!--begin::Brand Image-->
+  <img src="{% static 'img/logosara.png' %}"
+    alt="Logo Soluciones Sara"
+    class="brand-image opacity-75 shadow"
+    style="width:50px; height:300px; border-radius:100%; object-fit:cover; background:white;"
+  />
+  <!--end::Brand Image-->
+
+  <!--begin::Brand Text-->
+  <span class="brand-text fw-light">Soluciones Sara</span>
+  <!--end::Brand Text-->
+</a>
+
           <!--end::Brand Link-->
         </div>
         <!--end::Sidebar Brand-->
@@ -38,6 +41,14 @@
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
+                     <li class="nav-item">
+
+                    <!--WIDGET BOOSTRAP-->
+                    <a href="{% url 'mi_app:index' %}" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Pagina principal</p>
+                    </a>
+                  </li>
                   <li class="nav-item">
 
                     <!--WIDGET BOOSTRAP-->
@@ -77,8 +88,7 @@
                       <p>Presentacion/Tipo de prodcuto</p>
                       </a>
                      </li>
-                                <li class="nav-item">
-                    
+                      <li class="nav-item">
                      <!--modulo marca-->
                      <a href="{% url 'mi_app:categoria_lista' %}" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
