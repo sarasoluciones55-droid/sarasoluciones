@@ -1,19 +1,23 @@
-from django.urls import path, include
+from django.urls import path
+# importa las views reales según tus carpetas
 from mi_app.views import *
-from mi_app.views.views_administrador import *
-from mi_app.views.views_cliente import *
-from mi_app.views.views_proveedor import *
-from mi_app.views.views_marca import *
-from mi_app.views.views_presentacionTipo import *
-from mi_app.views.views_cateroria import *
-from mi_app.views.views_producto import *
-from mi_app.views.views_gestionservicio import *
-from mi_app.views.views_principal import listar_principal
+from mi_app.view.administrador.views_administrador import *
+from mi_app.view.cliente.views_cliente import *
+from mi_app.view.proveedor.views_proveedor import *
+from mi_app.view.marca.views_marca import *
+from mi_app.view.presentacion.views_presentacionTipo import *
+from mi_app.view.categoria.views_categoria import *
+from mi_app.view.producto.views_producto import *
+from mi_app.view.servicio.views_gestionservicio import *
+from mi_app.view.pedido.views_pedido import *
+from mi_app.view.factura.views_factura import *
+from mi_app.view.ventas.views_ventas import *
+from mi_app.view.garantia.views_garantia import *
 
 
 app_name = 'mi_app'
 urlpatterns = [
-      path('', listar_principal, name='index'),  
+   #path('index.html', vista, name='index'),
     
    #_________________________ Modulo de Administrador __________________________
     path('administradores/listar/', AdministradorListView.as_view(), name='administrador_lista'),
@@ -66,5 +70,34 @@ urlpatterns = [
        path('gestionservicio/listar/', servicioListView.as_view(), name='gestionservicio_lista'),
        path('gestionservicio/crear/', servicioCreateView.as_view(), name='gestionservicio_crear'),
        path('gestionservicio/editar/<int:pk>/', serviciopdateView.as_view(), name='gestionservicio_editar'),
-       path('gestionservicio/eliminar/<int:pk>/', servicioDeleteView.as_view(), name='gestionservicio_eliminar'),      
+       path('gestionservicio/eliminar/<int:pk>/', servicioDeleteView.as_view(), name='gestionservicio_eliminar'),  
+ 
+ 
+ #--------------------------------modulo garantia ---------------------------------------
+       path('garantia/listar/', GarantiaListView.as_view(), name='garantia_lista'),
+       path('garantia/crear/', GarantiaCreateView.as_view(), name='garantia_crear'),
+       path('garantia/editar/<int:pk>/', GarantiaupdateView.as_view(), name='garantia_editar'),
+       path('garantia/eliminar/<int:pk>/', GarantiaDeleteView.as_view(), name='garantia_eliminar'),  
+     
+#--------------------------------modulo pedido ---------------------------------------
+        path('pedido/listar/', pedidoListView.as_view(), name='pedido_lista'),   
+        path('pedido/crear/', pedidoCreateView.as_view(), name='pedido_crear'),
+        path('pedido/editar/<int:pk>/', pedidoUpdateView.as_view(), name='pedido_editar'),
+        path('pedido/eliminar/<int:pk>/', pedidoDeleteView.as_view(), name='pedido_eliminar'),
+      
+      
+#--------------------------------modulo facturacion ---------------------------------------
+        path('factura/listar/', FacturaListView.as_view(), name='factura_lista'),   
+        path('factura/crear/', FacturaCreateView.as_view(), name='factura_crear'),
+        path('factura/editar/<int:pk>/', FacturaUpdateView.as_view(), name='factura_editar'),
+        path('factura/eliminar/<int:pk>/', facturaDeleteView.as_view(), name='factura_eliminar'),      
+            
+
+#--------------------------------modulo ventas ---------------------------------------
+        path('ventas/listar/', ventasListView.as_view(), name='ventas_lista'),
+        path('ventas/crear/', ventasCreateView.as_view(), name='ventas_crear'),
+        path('ventas/editar/<int:pk>/', ventasUpdateView.as_view(), name='ventas_editar'),
+        path('ventas/eliminar/<int:pk>/', ventasDeleteView.as_view(), name='ventas_eliminar'),
+                  
 ]
+
